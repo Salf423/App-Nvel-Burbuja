@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AccelerometerEssential.Droid</RootNamespace>
+    <AssemblyName>AccelerometerEssential.Android</AssemblyName>
+    <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
+    <AndroidApplication>True</AndroidApplication>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XAML\AccelerometerEssential.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AndroidManifest Include="..\Propiedaes\AndroidManifest.xml" />
+  </ItemGroup>
+</Project>
