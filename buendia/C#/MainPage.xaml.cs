@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Essentials;
 
@@ -14,11 +15,15 @@ namespace AccelerometerEssential
         public MainPage()
         {
             InitializeComponent();
-            IniciarSensor();
+            IniciarSensorAsync();
         }
 
-        private void IniciarSensor()
+        private async void IniciarSensorAsync()
         {
+            bool permisoConcedido = await RequestSensorPermissionAsync();
+            if (!permisoConcedido)
+                return;
+
             try
             {
                 if (!Accelerometer.IsMonitoring)
@@ -31,6 +36,24 @@ namespace AccelerometerEssential
             {
                 Console.WriteLine("El dispositivo no tiene acelerómetro físico.");
             }
+        }
+
+        private async Task<bool> RequestSensorPermissionAsync()
+        {
+            if (Device.RuntimePlatform != Device.Android)
+                return true;
+
+            var status = await Permissions.CheckStatusAsync<Permissions.Sensors>();
+            if (status != PermissionStatus.Granted)
+                status = await Permissions.RequestAsync<Permissions.Sensors>();
+
+            if (status != PermissionStatus.Granted)
+            {
+                await DisplayAlert("Permiso requerido", "La app necesita permiso para acceder a los sensores del dispositivo.", "OK");
+                return false;
+            }
+
+            return true;
         }
 
         private void OnAcelerometroCambio(object sender, AccelerometerChangedEventArgs e)

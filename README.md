@@ -1,4 +1,9 @@
 # App-Nivel-Burbuja
+# Requisitos para probar en Android 
+- Agregar permisos de sensores en `AndroidManifest.xml`.
+- Solicitar el permiso de sensores en tiempo de ejecución en `MainPage.xaml.cs` para Android 6.0+.
+- Compilar en modo `Release` para hacer la prueba final en un dispositivo real.
+
 # Fuciones clave
     ''' <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.AccelerometerEssential">
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="33" />
