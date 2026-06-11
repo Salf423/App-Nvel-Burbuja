@@ -5,7 +5,7 @@
     <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
     <application android:label="Bubble Level"></application>
     </manifest>''' XML#
-    Como se ve en la funcion anterior donde se define el SDK de android que se va a usar, mas especfifico el SDK 21-33, se coloca asi pues la version minima es la 21, tambien se indican los requerimientos del hardware y el nombre de la aplicacion
+    Como se ve en la funcion anterior donde se define el SDK de android que se va a usar, mas especfifico el SDK 21-33, se coloca que la version minima es la 21, tambien se indican los requerimientos del hardware y el nombre de la aplicacion
 # Funcion logica
     '''private void OnAcelerometroCambio(object sender, AccelerometerChangedEventArgs e)
         {
