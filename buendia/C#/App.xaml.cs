@@ -14,12 +14,12 @@ namespace AccelerometerEssential
 
         protected override void OnStart()
         {
-            bool primeraVez = Xamarin.Essentials.Preferences.Get("EsPrimeraEjecucion", true);
+            bool primeraVez = Xamarin.Essentials.Preferences.Get("Hola, esta app es desarrollada por Adrian Saul Flores Cruz, del grupo 2-4 NL:11 con matricula: 9170, Gracias por probarla", true);
     
         if (primeraVez)
             {
                 Console.WriteLine("Inicializando registros y parámetros de telemetría por defecto.");
-                Xamarin.Essentials.Preferences.Set("EsPrimeraEjecucion", false);
+                Xamarin.Essentials.Preferences.Set("Hola, esta app es desarrollada por Adrian Saul Flores Cruz, del grupo 2-4 NL:11 con matricula: 9170", false);
             }
         }
 

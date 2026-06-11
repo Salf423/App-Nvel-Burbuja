@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/adrian/proyectos/buendia/XAML/AccelerometerEssential.csproj": {}
+    "/home/adrian/App-Nvel-Burbuja/buendia/XAML/AccelerometerEssential.csproj": {}
   },
   "projects": {
-    "/home/adrian/proyectos/buendia/XAML/AccelerometerEssential.csproj": {
+    "/home/adrian/App-Nvel-Burbuja/buendia/XAML/AccelerometerEssential.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/adrian/proyectos/buendia/XAML/AccelerometerEssential.csproj",
+        "projectUniqueName": "/home/adrian/App-Nvel-Burbuja/buendia/XAML/AccelerometerEssential.csproj",
         "projectName": "AccelerometerEssential",
-        "projectPath": "/home/adrian/proyectos/buendia/XAML/AccelerometerEssential.csproj",
+        "projectPath": "/home/adrian/App-Nvel-Burbuja/buendia/XAML/AccelerometerEssential.csproj",
         "packagesPath": "/home/adrian/.nuget/packages/",
-        "outputPath": "/home/adrian/proyectos/buendia/XAML/obj/",
+        "outputPath": "/home/adrian/App-Nvel-Burbuja/buendia/XAML/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/adrian/.nuget/NuGet/NuGet.Config"

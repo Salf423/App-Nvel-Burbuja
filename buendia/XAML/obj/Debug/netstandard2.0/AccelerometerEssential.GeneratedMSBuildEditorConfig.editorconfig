@@ -1,6 +1,6 @@
 is_global = true
 build_property.RootNamespace = AccelerometerEssential
-build_property.ProjectDir = /home/adrian/proyectos/buendia/XAML/
+build_property.ProjectDir = /home/adrian/App-Nvel-Burbuja/buendia/XAML/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.CsWinRTUseWindowsUIXamlProjections = false
