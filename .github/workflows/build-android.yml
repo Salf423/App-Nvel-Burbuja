@@ -35,7 +35,10 @@ jobs:
       with:
         api-level: 33
         ndk-version: r26
-        cmake-version: '3.22.1'      
+        cmake-version: '3.22.1'
+
+    - name: Debug - List directory structure
+      run: find . -name "*.csproj" -type f
 
     - name: Build Android App
       run: dotnet build AccelerometerEssential.Android/AccelerometerEssential.Android.csproj -c Release --no-restore
@@ -48,7 +51,7 @@ jobs:
        -o ./publish \
        /p:AndroidBuildApplicationPackage=true \
        /p:AndroidGenerateNoSignatureApk=true
-
+ 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
