@@ -37,8 +37,9 @@ jobs:
         ndk-version: r26
         cmake-version: '3.22.1'
         
-    - name: Restore NuGet packages
-      run: dotnet restore AccelerometerEssential/AccelerometerEssential.Android/AccelerometerEssential.Android.csproj
+    - name: Build Android App
+      run: dotnet build AccelerometerEssential/AccelerometerEssential.Android/AccelerometerEssential.Android.csproj -c Release --no-restore
+
 
     - name: Build Android App
       run: dotnet build /AccelerometerEssential.Android/AccelerometerEssential.Android.csproj -c Release --no-restore
