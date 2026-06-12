@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <TargetFramework>net6.0-android</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AccelerometerEssential.Droid</RootNamespace>
     <AssemblyName>AccelerometerEssential.Android</AssemblyName>
-    <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
-    <AndroidApplication>True</AndroidApplication>
+    <AndroidMinimumVersion>21</AndroidMinimumVersion>
+    <AndroidTargetSdkVersion>33</AndroidTargetSdkVersion>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,9 +18,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\XAML\AccelerometerEssential.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <AndroidManifest Include="..\Propiedaes\AndroidManifest.xml" />
   </ItemGroup>
 </Project>
