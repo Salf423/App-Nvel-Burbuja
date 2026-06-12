@@ -10,6 +10,12 @@
     <AndroidPackageFormat>apk</AndroidPackageFormat>
     <CheckEolWorkloads>false</CheckEolWorkloads>
     <AndroidSdkBuildToolsVersion>34.0.0</AndroidSdkBuildToolsVersion>
+    
+    <!-- 1. Desactivamos la migración vieja de Xamarin que causa el error -->
+    <SkipAndroidXMigration>true</SkipAndroidXMigration>
+    
+    <!-- 2. Engañamos al lector de la librería vieja para que no reciba un texto vacío -->
+    <MonoAndroidVersion>12.0</MonoAndroidVersion>
   </PropertyGroup>
 
   <ItemGroup>
