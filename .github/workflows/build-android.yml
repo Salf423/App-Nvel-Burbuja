@@ -42,18 +42,17 @@ jobs:
 
     - name: Restore NuGet packages
       run: dotnet restore AccelerometerEssential.Android/AccelerometerEssential.Android.csproj
-      
 
 
     - name: Restore NuGet packages
-      run: dotnet restore AccelerometerEssential.Android/AccelerometerEssential.Android.csproj
+      run: dotnet restore AccelerometerEssential.Android.csproj
 
     - name: Build Android App
-      run: dotnet build AccelerometerEssential.Android/AccelerometerEssential.Android.csproj -c Release --no-restore
+      run: dotnet build AccelerometerEssential.Android.csproj -c Release --no-restore
 
     - name: Create APK
       run: |
-       dotnet publish "AccelerometerEssential.Android/AccelerometerEssential.Android.csproj" \
+       dotnet publish "/AccelerometerEssential.Android.csproj" \
        -c Release \
        -f net6.0-android \
        -o ./publish \
