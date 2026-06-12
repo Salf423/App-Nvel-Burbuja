@@ -2,19 +2,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0-android</TargetFramework>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType> 
+    <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
     <RootNamespace>AccelerometerEssential.Droid</RootNamespace>
     <AssemblyName>AccelerometerEssential.Android</AssemblyName>
-    <AndroidMinimumVersion>21</AndroidMinimumVersion>
-    <AndroidTargetSdkVersion>33</AndroidTargetSdkVersion>
     <AndroidPackageFormat>apk</AndroidPackageFormat>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
   </ItemGroup>
+</Project>
 
   <ItemGroup>
     <ProjectReference Include="..\XAML\AccelerometerEssential.csproj" />
