@@ -41,22 +41,21 @@ jobs:
       run: dotnet workload install android
 
     - name: Restore NuGet packages
-      run: dotnet restore AccelerometerEssential.Android.csproj
+      run: dotnet restore
 
-
-    - name: Restore NuGet packages
-      run: dotnet restore AccelerometerEssential.Android.csproj
 
     - name: Build Android App
-      run: dotnet build AccelerometerEssential.Android.csproj -c Release --no-restore
+      run: dotnet build /AccelerometerEssential.Android/AccelerometerEssential.Android.csproj -c Release --no-restore
 
     - name: Create APK
       run: |
-       dotnet publish "/AccelerometerEssential.Android.csproj" \
-       -c Release \
-       -f net6.0-android \
-       -o ./publish \
-       /p:AndroidBuildApplicationPackage=true
+        dotnet publish AccelerometerEssential/AccelerometerEssential.Android/AccelerometerEssential.Android.csproj \
+          -c Release \
+          -f net6.0-android \
+          -o ./publish \
+          /p:AndroidBuildApplicationPackage=true \
+          /p:AndroidGenerateNoSignatureApk=true
+
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
