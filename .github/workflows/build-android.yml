@@ -50,7 +50,7 @@ jobs:
           -o ./publish
 
     - name: Upload APK
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: accelerometer-apk
         path: |
@@ -71,10 +71,10 @@ jobs:
     - name: Print build status
       if: success()
       run: |
-        echo "✅ Build completed successfully!"
+        echo "Build completed successfully!"
         echo "APK available in artifacts"
         
     - name: Print build failure
       if: failure()
       run: |
-        echo "❌ Build failed - check logs above"
+        echo " Build failed - check logs above"
