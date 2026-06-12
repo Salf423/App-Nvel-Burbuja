@@ -49,7 +49,7 @@ jobs:
       run: |
        dotnet publish AccelerometerEssential.Android.csproj \
        -c Release \
-       -f net6.0-android \
+       -f net9.0-android \
        -o ./publish \
        /p:AndroidBuildApplicationPackage=true \
        /p:AndroidGenerateNoSignatureApk=true
