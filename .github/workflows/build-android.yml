@@ -54,7 +54,7 @@ jobs:
           -f net6.0-android \
           -o ./publish \
            /p:AndroidBuildApplicationPackage=true \
-          /p:AndroidGenerateNoSignatureApk=tru
+
 
 
     - name: Upload APK
