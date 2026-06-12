@@ -77,4 +77,4 @@ jobs:
     - name: Print build failure
       if: failure()
       run: |
-        echo "Build failed - check logs above
+        echo "Build failed - check logs above"
