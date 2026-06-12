@@ -36,16 +36,15 @@ jobs:
         api-level: 33
         ndk-version: r26
         cmake-version: '3.22.1'
-
     - name: Debug - List directory structure
       run: find . -name "*.csproj" -type f
 
     - name: Build Android App
-      run: dotnet build AccelerometerEssential.Android/AccelerometerEssential.Android.csproj -c Release --no-restore
-      
+      run: dotnet build <actual-path>/<project-name>.csproj -c Release --no-restore
+  
     - name: Create APK
       run: |
-       dotnet publish AccelerometerEssential.Android/AccelerometerEssential.Android.csproj \
+       dotnet publish <actual-path>/<project-name>.csproj \
        -c Release \
        -f net6.0-android \
        -o ./publish \
