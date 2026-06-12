@@ -9,6 +9,7 @@
     <AssemblyName>AccelerometerEssential.Android</AssemblyName>
     <AndroidPackageFormat>apk</AndroidPackageFormat>
     <CheckEolWorkloads>false</CheckEolWorkloads>
+    <AndroidSdkBuildToolsVersion>34.0.0</AndroidSdkBuildToolsVersion>
   </PropertyGroup>
 
   <ItemGroup>
