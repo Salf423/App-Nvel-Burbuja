@@ -41,10 +41,11 @@ jobs:
       run: dotnet workload install android
 
     - name: Restore NuGet packages
-      run: dotnet restore buendia/C#/AccelerometerEssential.Android.csproj
+      run: dotnet restore
 
-    - name: Build Android Project
-      run: dotnet build buendia/C#/AccelerometerEssential.Android.csproj -c Release -v normal
+
+    - name: Build Android App
+      run: dotnet build AccelerometerEssential.Android/AccelerometerEssential.Android.csproj -c Release --no-restore
 
     - name: Create APK
       run: |
