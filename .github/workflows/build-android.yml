@@ -50,13 +50,13 @@ jobs:
           -o ./publish
 
     - name: Upload APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: accelerometer-apk
-        path: |
-          ./publish/**/*.apk
-          ./publish/**/*.aab
-        retention-days: 30
+  uses: actions/upload-artifact@v4
+  with:
+    name: accelerometer-apk
+    path: |
+      ./publish/**/*.apk
+      ./publish/**/*.aab
+    retention-days: 30
 
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
