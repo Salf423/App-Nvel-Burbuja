@@ -48,14 +48,13 @@ jobs:
       run: dotnet build AccelerometerEssential.Android/AccelerometerEssential.Android.csproj -c Release --no-restore
 
     - name: Create APK
-      run: |
-        - name: Create APK
+      run: 
         dotnet publish "AccelerometerEssential.Android/AccelerometerEssential.Android.csproj" \
           -c Release \
           -f net6.0-android \
           -o ./publish \
            /p:AndroidBuildApplicationPackage=true \
-          /p:AndroidGenerateNoSignatureApk=true
+          /p:AndroidGenerateNoSignatureApk=tru
 
 
     - name: Upload APK
