@@ -40,11 +40,11 @@ jobs:
       run: find . -name "*.csproj" -type f
 
     - name: Build Android App
-      run: dotnet build <actual-path>/<project-name>.csproj -c Release --no-restore
+      run: dotnet build AccelerometerEssential.Android.csproj -c Release --no-restore
   
     - name: Create APK
       run: |
-       dotnet publish <actual-path>/<project-name>.csproj \
+       dotnet publish AccelerometerEssential.Android.csproj \
        -c Release \
        -f net6.0-android \
        -o ./publish \
