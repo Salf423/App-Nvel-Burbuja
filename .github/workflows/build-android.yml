@@ -36,12 +36,15 @@ jobs:
         api-level: 33
         ndk-version: r26
         cmake-version: '3.22.1'
+    
     - name: Debug - List directory structure
       run: find . -name "*.csproj" -type f
 
+    - name: Restore NuGet packages
+      run: dotnet restore
+
     - name: Build Android App
-      run: dotnet build AccelerometerEssential.Android.csproj -c Release --no-restore
-  
+      run: dotnet build AccelerometerEssential.Android.csproj -c Release
     - name: Create APK
       run: |
        dotnet publish AccelerometerEssential.Android.csproj \
