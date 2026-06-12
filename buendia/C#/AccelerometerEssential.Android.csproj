@@ -8,6 +8,7 @@
     <RootNamespace>AccelerometerEssential.Droid</RootNamespace>
     <AssemblyName>AccelerometerEssential.Android</AssemblyName>
     <AndroidPackageFormat>apk</AndroidPackageFormat>
+    <CheckEolWorkloads>false</CheckEolWorkloads>
   </PropertyGroup>
 
   <ItemGroup>
