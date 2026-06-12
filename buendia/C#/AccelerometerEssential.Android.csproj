@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>net6.0-android</TargetFramework>
-    <OutputType>Exe</OutputType> 
+    <OutputType>Exe</OutputType>
     <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
     <RootNamespace>AccelerometerEssential.Droid</RootNamespace>
     <AssemblyName>AccelerometerEssential.Android</AssemblyName>
@@ -10,12 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2195" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
   </ItemGroup>
-</Project>
 
   <ItemGroup>
     <ProjectReference Include="..\XAML\AccelerometerEssential.csproj" />
   </ItemGroup>
+
 </Project>
