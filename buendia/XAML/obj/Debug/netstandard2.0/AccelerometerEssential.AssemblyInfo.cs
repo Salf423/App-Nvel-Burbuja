@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AccelerometerEssential")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+348fb156fd35304b7ba857e6cecd996276b789ed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+851dab8ef7ed0b68f476aada3b06d9d50ea54ef9")]
 [assembly: System.Reflection.AssemblyProductAttribute("AccelerometerEssential")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AccelerometerEssential")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

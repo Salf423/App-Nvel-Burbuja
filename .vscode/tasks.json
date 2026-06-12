@@ -1,0 +1,68 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-android-debug",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/buendia/C#/AccelerometerEssential.Android.csproj",
+                "-c",
+                "Debug",
+                "-v",
+                "normal"
+            ],
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "dependsOn": [
+                "restore"
+            ]
+        },
+        {
+            "label": "restore",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "restore",
+                "${workspaceFolder}/buendia/C#/AccelerometerEssential.Android.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "deploy-android",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/buendia/C#/AccelerometerEssential.Android.csproj",
+                "-c",
+                "Debug",
+                "-t",
+                "Install"
+            ],
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "dependsOn": [
+                "build-android-debug"
+            ]
+        },
+        {
+            "label": "build-and-deploy",
+            "dependsOn": [
+                "deploy-android"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

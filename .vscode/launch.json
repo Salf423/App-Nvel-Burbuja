@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Android: Debug en Dispositivo Físico",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-android-debug",
+            "program": "${workspaceFolder}/buendia/C#/bin/Debug/AccelerometerEssential.Android.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
+            "name": "Android: Attach (Dispositivo Físico)",
+            "type": "coreclr",
+            "request": "attach",
+            "justMyCode": false,
+            "logging": {
+                "moduleLoad": false,
+                "programOutput": true,
+                "trace": false
+            }
+        }
+    ]
+}
