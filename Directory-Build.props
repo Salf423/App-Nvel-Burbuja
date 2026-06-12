@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <AndroidXValidateXamarinAndroid>false</AndroidXValidateXamarinAndroid>
+    <SkipAndroidXMigration>true</SkipAndroidXMigration>
+    <MonoAndroidVersion>12.0</MonoAndroidVersion>
+  </PropertyGroup>
+</Project>
