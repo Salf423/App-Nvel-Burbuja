@@ -39,15 +39,15 @@ jobs:
 
     - name: Build Android App
       run: dotnet build AccelerometerEssential.Android/AccelerometerEssential.Android.csproj -c Release --no-restore
+      
     - name: Create APK
       run: |
-        dotnet publish AccelerometerEssential/AccelerometerEssential.Android/AccelerometerEssential.Android.csproj \
-          -c Release \
-          -f net6.0-android \
-          -o ./publish \
-          /p:AndroidBuildApplicationPackage=true \
-          /p:AndroidGenerateNoSignatureApk=true
-
+       dotnet publish AccelerometerEssential.Android/AccelerometerEssential.Android.csproj \
+       -c Release \
+       -f net6.0-android \
+       -o ./publish \
+       /p:AndroidBuildApplicationPackage=true \
+       /p:AndroidGenerateNoSignatureApk=true
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
