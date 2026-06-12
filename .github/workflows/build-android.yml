@@ -36,13 +36,9 @@ jobs:
         api-level: 33
         ndk-version: r26
         cmake-version: '3.22.1'
-
-    - name: Install .NET Android workload
-      run: dotnet workload install android
-
+        
     - name: Restore NuGet packages
-      run: dotnet restore
-
+      run: dotnet restore AccelerometerEssential/AccelerometerEssential.Android/AccelerometerEssential.Android.csproj
 
     - name: Build Android App
       run: dotnet build /AccelerometerEssential.Android/AccelerometerEssential.Android.csproj -c Release --no-restore
