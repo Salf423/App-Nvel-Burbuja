@@ -35,11 +35,7 @@ jobs:
       with:
         api-level: 33
         ndk-version: r26
-        cmake-version: '3.22.1'
-        
-    - name: Build Android App
-      run: dotnet build AccelerometerEssential/AccelerometerEssential.Android/AccelerometerEssential.Android.csproj -c Release --no-restore
-
+        cmake-version: '3.22.1'      
 
     - name: Build Android App
       run: dotnet build /AccelerometerEssential.Android/AccelerometerEssential.Android.csproj -c Release --no-restore
