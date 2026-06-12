@@ -49,11 +49,12 @@ jobs:
 
     - name: Create APK
       run: |
-        dotnet publish "buendia/C#/AccelerometerEssential.Android.csproj" \
+        - name: Create APK
+        dotnet publish "AccelerometerEssential.Android/AccelerometerEssential.Android.csproj" \
           -c Release \
           -f net6.0-android \
           -o ./publish \
-          /p:AndroidBuildApplicationPackage=true \
+           /p:AndroidBuildApplicationPackage=true \
           /p:AndroidGenerateNoSignatureApk=true
 
 
