@@ -41,7 +41,8 @@ jobs:
       run: dotnet workload install android
 
     - name: Restore NuGet packages
-      run: dotnet restore
+      run: dotnet restore AccelerometerEssential.Android/AccelerometerEssential.Android.csproj
+      
 
 
     - name: Build Android App
