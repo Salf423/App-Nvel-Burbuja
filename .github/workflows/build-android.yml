@@ -41,13 +41,13 @@ jobs:
       run: find . -name "*.csproj" -type f
 
     - name: Restore NuGet packages
-      run: dotnet restore
+      run: dotnet restore "buendia/C#/AccelerometerEssential.Android.csproj"
 
     - name: Build Android App
-      run: dotnet build buendia/C#/AccelerometerEssential.Android.csproj -c Release
+      run: dotnet build "buendia/C#/AccelerometerEssential.Android.csproj" -c Release
     - name: Create APK
       run: |
-       dotnet publish buendia/C#/AccelerometerEssential.Android.csproj \
+       dotnet publish "buendia/C#/AccelerometerEssential.Android.csproj" \
        -c Release \
        -f net9.0-android \
        -o ./publish \
