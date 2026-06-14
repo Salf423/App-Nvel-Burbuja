@@ -7,26 +7,20 @@
 
     <Grid RowDefinitions="*,Auto,*" ColumnDefinitions="*">
         
-        <!-- Contenedor Principal del Tubo -->
         <Grid Grid.Row="1" WidthRequest="320" HeightRequest="80" HorizontalOptions="Center" VerticalOptions="Center">
             
-            <!-- El cristal/líquido del tubo -->
             <shapes:RoundRectangle CornerRadius="40" Fill="#2a3b2a" Stroke="#444444" StrokeThickness="3" />
             
-            <!-- La Burbuja que se moverá -->
             <shapes:RoundRectangle x:Name="miBurbuja" WidthRequest="60" HeightRequest="60" CornerRadius="30" Fill="#39ff14" HorizontalOptions="Center" VerticalOptions="Center">
                 <shapes:RoundRectangle.Shadow>
                     <Shadow Brush="#39ff14" Offset="0,0" Radius="15" Opacity="0.8" />
                 </shapes:RoundRectangle.Shadow>
             </shapes:RoundRectangle>
 
-            <!-- Marcas de Nivelado (Centro) -->
             <BoxView WidthRequest="3" HeightRequest="80" Color="#111111" HorizontalOptions="Center" TranslationX="-35" />
             <BoxView WidthRequest="3" HeightRequest="80" Color="#111111" HorizontalOptions="Center" TranslationX="35" />
             
         </Grid>
-
-        <!-- Etiqueta de Grados -->
         <Label x:Name="lblGrados" Grid.Row="2" Text="0.0°" TextColor="#ffffff" FontSize="48" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,30,0,0" />
 
     </Grid>
