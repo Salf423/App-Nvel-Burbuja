@@ -4,6 +4,7 @@ using Microsoft.Maui.Controls;
 using Microsoft.Maui.ApplicationModel;
 using Microsoft.Maui.Devices;
 using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Graphics;
 
 namespace AccelerometerEssential
 {
@@ -68,19 +69,36 @@ namespace AccelerometerEssential
             _yFiltrado = (yPuro * Alpha) + (_yFiltrado * (1.0 - Alpha));
             _zFiltrado = (zPuro * Alpha) + (_zFiltrado * (1.0 - Alpha));
 
-            double pitchRadianes = Math.Atan2(-_xFiltrado, Math.Sqrt(_yFiltrado * _yFiltrado + _zFiltrado * _zFiltrado));
-            double pitchGrados = pitchRadianes * (180.0 / Math.PI);
-            double rollRadianes = Math.Atan2(_yFiltrado, _zFiltrado);
+            // Calculamos la inclinación lateral (eje X)
+            double rollRadianes = Math.Atan2(_xFiltrado, Math.Sqrt(_yFiltrado * _yFiltrado + _zFiltrado * _zFiltrado));
             double rollGrados = rollRadianes * (180.0 / Math.PI);
 
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                const double factorEscala = 2.5;
-                double desplazamientoX = Math.Max(-100, Math.Min(rollGrados * factorEscala, 100));
-                double desplazamientoY = Math.Max(-100, Math.Min(pitchGrados * factorEscala, 100));
+                // Tubo: 320 px ancho. Burbuja: 60 px ancho.
+                // Limite físico de desplazamiento desde el centro = (320 - 60) / 2 = 130
+                // Mapeo: Si se inclina 45 grados, llega al límite del tubo
+                const double pixelesPorGrado = 130.0 / 45.0; // aprox 2.88
+                double desplazamientoX = rollGrados * pixelesPorGrado;
+                
+                // Restringir el movimiento de la burbuja para que no salga del tubo
+                desplazamientoX = Math.Max(-130, Math.Min(desplazamientoX, 130));
 
-                miBurbuja.TranslationX = desplazamientoX;
-                miBurbuja.TranslationY = desplazamientoY;
+                // La burbuja va hacia el lado más alto. 
+                miBurbuja.TranslationX = -desplazamientoX;
+
+                // Actualizar etiqueta de grados (con 1 decimal)
+                lblGrados.Text = $"{Math.Abs(rollGrados):F1}°";
+                
+                // Efecto visual: cambiar a verde cuando está perfectamente nivelado (< 1 grado)
+                if (Math.Abs(rollGrados) < 1.0)
+                {
+                    lblGrados.TextColor = Color.FromArgb("#39ff14"); // Verde neón
+                }
+                else
+                {
+                    lblGrados.TextColor = Colors.White;
+                }
             });
         }
 
