@@ -18,14 +18,29 @@ El proyecto no compilaba por una combinación de **configuración de SDK incompa
 - El workload **android** no estaba instalado en el entorno local.
 
 ### Corrección
-- `global.json` ahora usa `rollForward: latestMajor` para aceptar cualquier SDK 9+ instalado.
+- `global.json` fija **SDK 9.0.200** con `rollForward: latestPatch` para evitar que CI use .NET 10 sin el workload Android instalado.
 - Target framework actualizado de `net6.0-android` → **`net9.0-android`**.
 - Eliminadas propiedades obsoletas: `CheckEolWorkloads`, `MonoAndroidVersion`, `SkipAndroidXMigration`, etc.
 
+### Corrección CI (GitHub Actions)
+El error `Failed to restore ... exit code 1` ocurría porque:
+1. Los runners de GitHub usan **.NET 10** por defecto.
+2. `global.json` tenía `rollForward: latestMajor`, así que `dotnet restore` usaba SDK 10.
+3. El workload `android` se instalaba para SDK 9 (`dotnet-version: 9.0.x`), pero restore corría con SDK 10 → **NETSDK1147**.
+
+Solución aplicada en `.github/workflows/build-android.yml`:
+- `global-json-file: global.json` fuerza SDK 9.0.x en todos los pasos.
+- `dotnet workload install android` se ejecuta **después** del setup del SDK correcto.
+- Paso de verificación con `dotnet --info` y `dotnet workload list`.
+
 ### Acción requerida en tu máquina
-Instala el workload Android antes de compilar:
+Instala **SDK 9.0.x** (el proyecto lo fija en `global.json`) y el workload Android:
 
 ```bash
+# Instalar SDK 9 si solo tienes .NET 10
+dotnet --list-sdks
+
+# Workload Android (requiere permisos de admin en Linux)
 sudo dotnet workload install android
 ```
 

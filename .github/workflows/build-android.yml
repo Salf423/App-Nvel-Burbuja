@@ -7,6 +7,9 @@ on:
     branches: [ main, master, develop ]
   workflow_dispatch:
 
+env:
+  ANDROID_PROJECT: buendia/C#/AccelerometerEssential.Android.csproj
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,13 +18,18 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Setup .NET
+    - name: Setup .NET SDK
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '9.0.x'
+        global-json-file: global.json
 
-    - name: Install .NET Android workload
+    - name: Install Android workload
       run: dotnet workload install android
+
+    - name: Verify SDK and workloads
+      run: |
+        dotnet --info
+        dotnet workload list
 
     - name: Setup Java
       uses: actions/setup-java@v4
@@ -33,11 +41,11 @@ jobs:
       uses: android-actions/setup-android@v3
 
     - name: Restore NuGet packages
-      run: dotnet restore "buendia/C#/AccelerometerEssential.Android.csproj"
+      run: dotnet restore "${{ env.ANDROID_PROJECT }}"
 
     - name: Build and publish APK
       run: |
-        dotnet publish "buendia/C#/AccelerometerEssential.Android.csproj" \
+        dotnet publish "${{ env.ANDROID_PROJECT }}" \
           -c Release \
           -f net9.0-android \
           -o ./publish \
