@@ -1,6 +1,6 @@
 using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Storage;
 
 namespace AccelerometerEssential
 {
@@ -16,23 +16,23 @@ namespace AccelerometerEssential
 
         protected override void OnStart()
         {
-            bool primeraVez = Xamarin.Essentials.Preferences.Get(PrimeraEjecucionKey, true);
+            bool primeraVez = Preferences.Get(PrimeraEjecucionKey, true);
 
             if (primeraVez)
             {
                 Console.WriteLine("Inicializando registros y parámetros de telemetría por defecto.");
-                Xamarin.Essentials.Preferences.Set(PrimeraEjecucionKey, false);
+                Preferences.Set(PrimeraEjecucionKey, false);
             }
         }
 
         protected override void OnSleep()
         {
-            Xamarin.Forms.MessagingCenter.Send(this, "AppEnPausa");
+            System.Diagnostics.Debug.WriteLine("App en pausa.");
         }
 
         protected override void OnResume()
         {
-            Xamarin.Forms.MessagingCenter.Send(this, "AppReanudada");
+            System.Diagnostics.Debug.WriteLine("App reanudada.");
         }
     }
 }

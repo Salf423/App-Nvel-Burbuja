@@ -24,7 +24,7 @@ jobs:
         global-json-file: global.json
 
     - name: Install Android workload
-      run: dotnet workload install android
+      run: dotnet workload install maui-android
 
     - name: Verify SDK and workloads
       run: |

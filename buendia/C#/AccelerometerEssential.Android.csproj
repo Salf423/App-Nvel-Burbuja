@@ -4,7 +4,8 @@
   <PropertyGroup>
     <TargetFramework>net9.0-android</TargetFramework>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AccelerometerEssential.Droid</RootNamespace>
+    <UseMaui>true</UseMaui>
+    <RootNamespace>AccelerometerEssential</RootNamespace>
     <AssemblyName>AccelerometerEssential.Android</AssemblyName>
     <ApplicationId>com.companyname.AccelerometerEssential</ApplicationId>
     <ApplicationTitle>Bubble Level</ApplicationTitle>
@@ -13,14 +14,20 @@
     <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
     <AndroidPackageFormat>apk</AndroidPackageFormat>
     <Nullable>enable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultMauiItems>false</EnableDefaultMauiItems>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2662" />
+    <Compile Include="MauiProgram.cs" />
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="App.xaml.cs" />
+    <Compile Include="MainPage.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\XAML\AccelerometerEssential.csproj" />
+    <MauiXaml Include="..\XAML\App.xaml" Link="App.xaml" />
+    <MauiXaml Include="..\XAML\MainPage.xaml" Link="MainPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>

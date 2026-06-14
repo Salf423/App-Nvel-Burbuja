@@ -187,15 +187,41 @@ El APK estará en `./publish/` con un nombre similar a:
 
 ---
 
-## Archivos modificados
+## 8. Migración Completa de Xamarin.Forms a .NET MAUI
+
+Debido a que el proyecto utilizaba `net9.0-android` pero dependía de `Xamarin.Forms` y `Xamarin.Essentials` (pertenecientes al ecosistema Xamarin clásico incompatible con .NET 9 y causante del conflicto de degradación `NU1605`), se migró la aplicación completa a **.NET MAUI**.
+
+### Cambios de Entorno y Workflow
+
+- **Consolidación de Proyectos (Single Project):**
+  - Se eliminó el proyecto compartido antiguo (`buendia/XAML/AccelerometerEssential.csproj`).
+  - El proyecto de Android (`buendia/C#/AccelerometerEssential.Android.csproj`) se convirtió en un proyecto MAUI único usando `<UseMaui>true</UseMaui>`, compilando y enlazando los archivos C# y XAML directamente desde la misma estructura.
+
+- **Entorno de Compilación y GitHub Actions Workflow (`build-android.yml`):**
+  - Se cambió la instalación de workloads en el workflow de CI: de `dotnet workload install android` a `dotnet workload install maui-android`.
+  - Se actualizó la configuración de `global.json` cambiando `rollForward` a `latestMajor` para permitir compatibilidad local y de CI con versiones superiores instaladas del SDK de .NET.
+  - Se actualizó el `targetSdkVersion` en `AndroidManifest.xml` de `33` a `34` (Android 14) para estar alineado con los requerimientos modernos de compilación de .NET 9.
+
+- **Actualización de Código y Estructura XAML:**
+  - Migración de espacios de nombres en todos los archivos `.cs` (reemplazo de `Xamarin.Forms` por `Microsoft.Maui.Controls` y `Xamarin.Essentials` por APIs nativas de MAUI en `Microsoft.Maui.Devices.Sensors` y `Microsoft.Maui.Storage`).
+  - Creación de [MauiProgram.cs](file:///home/adrian/App-BN/App-Nvel-Burbuja/buendia/C%23/MauiProgram.cs) como punto de inicio y simplificación de `MainActivity.cs` eliminando la inicialización manual.
+  - Actualización de los esquemas XML en los archivos `.xaml` e implementación de `Border` y `RoundRectangle` en sustitución de los componentes `Frame` obsoletos.
+
+---
+
+## Archivos modificados y agregados en la última fase
 
 | Archivo | Tipo de cambio |
 |---------|----------------|
-| `global.json` | SDK flexible con rollForward |
-| `Directory-Build.props` | Limpieza de props obsoletas |
-| `buendia/C#/AccelerometerEssential.Android.csproj` | Reescritura completa |
-| `buendia/XAML/AccelerometerEssential.csproj` | TFM + paquetes |
-| `buendia/C#/App.xaml.cs` | Bug Preferences + formato |
-| `buendia/C#/MainPage.xaml.cs` | Limpieza menor |
-| `.github/workflows/build-android.yml` | Pipeline unificado |
-| `.vscode/tasks.json` | Tarea release APK |
+| `global.json` | `rollForward` cambiado a `latestMajor` |
+| `buendia/C#/AccelerometerEssential.Android.csproj` | Convertido a proyecto MAUI Single Project |
+| `buendia/C#/MauiProgram.cs` | [NUEVO] Inicializador del host MAUI |
+| `buendia/C#/MainActivity.cs` | Simplificado a `MauiAppCompatActivity` |
+| `buendia/C#/App.xaml.cs` | Migración de namespaces y APIs a MAUI |
+| `buendia/C#/MainPage.xaml.cs` | Migración de APIs de acelerómetro y UI thread a MAUI |
+| `buendia/XAML/App.xaml` | XMLNS actualizado a MAUI |
+| `buendia/XAML/MainPage.xaml` | XMLNS actualizado, reemplazo de `Frame` por `Border` |
+| `buendia/Propiedaes/AndroidManifest.xml` | `targetSdkVersion` incrementado a 34 |
+| `buendia/XAML/AccelerometerEssential.csproj` | [ELIMINADO] Proyecto compartido obsoleto |
+| `.github/workflows/build-android.yml` | Workload corregido a `maui-android` |
+

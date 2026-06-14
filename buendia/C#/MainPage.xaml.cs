@@ -1,7 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using Xamarin.Forms;
-using Xamarin.Essentials;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices.Sensors;
 
 namespace AccelerometerEssential
 {
@@ -26,10 +27,10 @@ namespace AccelerometerEssential
 
             try
             {
-                if (!Accelerometer.IsMonitoring)
+                if (!Accelerometer.Default.IsMonitoring)
                 {
-                    Accelerometer.Start(SensorSpeed.UI);
-                    Accelerometer.ReadingChanged += OnAcelerometroCambio;
+                    Accelerometer.Default.ReadingChanged += OnAcelerometroCambio;
+                    Accelerometer.Default.Start(SensorSpeed.UI);
                 }
             }
             catch (FeatureNotSupportedException)
@@ -40,7 +41,7 @@ namespace AccelerometerEssential
 
         private async Task<bool> RequestSensorPermissionAsync()
         {
-            if (Device.RuntimePlatform != Device.Android)
+            if (DeviceInfo.Platform != DevicePlatform.Android)
                 return true;
 
             var status = await Permissions.CheckStatusAsync<Permissions.Sensors>();
@@ -56,7 +57,7 @@ namespace AccelerometerEssential
             return true;
         }
 
-        private void OnAcelerometroCambio(object sender, AccelerometerChangedEventArgs e)
+        private void OnAcelerometroCambio(object? sender, AccelerometerChangedEventArgs e)
         {
             double xPuro = e.Reading.Acceleration.X;
             double yPuro = e.Reading.Acceleration.Y;
@@ -71,7 +72,7 @@ namespace AccelerometerEssential
             double rollRadianes = Math.Atan2(_yFiltrado, _zFiltrado);
             double rollGrados = rollRadianes * (180.0 / Math.PI);
 
-            Device.BeginInvokeOnMainThread(() =>
+            MainThread.BeginInvokeOnMainThread(() =>
             {
                 const double factorEscala = 2.5;
                 double desplazamientoX = Math.Max(-100, Math.Min(rollGrados * factorEscala, 100));
@@ -85,10 +86,10 @@ namespace AccelerometerEssential
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            if (Accelerometer.IsMonitoring)
+            if (Accelerometer.Default.IsMonitoring)
             {
-                Accelerometer.ReadingChanged -= OnAcelerometroCambio;
-                Accelerometer.Stop();
+                Accelerometer.Default.ReadingChanged -= OnAcelerometroCambio;
+                Accelerometer.Default.Stop();
             }
         }
     }
