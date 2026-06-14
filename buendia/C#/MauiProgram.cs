@@ -1,4 +1,5 @@
 using Microsoft.Maui.Hosting;
+using Microsoft.Maui.Controls.Hosting;
 
 namespace AccelerometerEssential;
 
