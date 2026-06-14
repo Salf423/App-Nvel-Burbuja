@@ -73,12 +73,9 @@ namespace AccelerometerEssential
 
             Device.BeginInvokeOnMainThread(() =>
             {
-                double factorEscala = 2.5;
-                double desplazamientoX = rollGrados * factorEscala;
-                double desplazamientoY = pitchGrados * factorEscala;
-
-                desplazamientoX = Math.Max(-100, Math.Min(desplazamientoX, 100));
-                desplazamientoY = Math.Max(-100, Math.Min(desplazamientoY, 100));
+                const double factorEscala = 2.5;
+                double desplazamientoX = Math.Max(-100, Math.Min(rollGrados * factorEscala, 100));
+                double desplazamientoY = Math.Max(-100, Math.Min(pitchGrados * factorEscala, 100));
 
                 miBurbuja.TranslationX = desplazamientoX;
                 miBurbuja.TranslationY = desplazamientoY;

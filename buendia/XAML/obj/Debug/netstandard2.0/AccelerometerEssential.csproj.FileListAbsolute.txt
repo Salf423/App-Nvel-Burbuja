@@ -1,0 +1,14 @@
+/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/bin/Debug/netstandard2.0/AccelerometerEssential.deps.json
+/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/bin/Debug/netstandard2.0/AccelerometerEssential.dll
+/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/bin/Debug/netstandard2.0/AccelerometerEssential.pdb
+/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/obj/Debug/netstandard2.0/AccelerometerEssential.csproj.AssemblyReference.cache
+/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/obj/Debug/netstandard2.0/AccelerometerEssential.GeneratedMSBuildEditorConfig.editorconfig
+/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/obj/Debug/netstandard2.0/App.xaml.g.cs
+/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/obj/Debug/netstandard2.0/MainPage.xaml.g.cs
+/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/obj/Debug/netstandard2.0/AccelerometerEssential.AssemblyInfoInputs.cache
+/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/obj/Debug/netstandard2.0/AccelerometerEssential.AssemblyInfo.cs
+/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/obj/Debug/netstandard2.0/AccelerometerEssential.csproj.CoreCompileInputs.cache
+/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/obj/Debug/netstandard2.0/AccelerometerEssential.sourcelink.json
+/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/obj/Debug/netstandard2.0/XamlC.stamp
+/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/obj/Debug/netstandard2.0/AccelerometerEssential.dll
+/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/obj/Debug/netstandard2.0/AccelerometerEssential.pdb

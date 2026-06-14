@@ -1,30 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/home/adrian/App-Nvel-Burbuja/buendia/XAML/AccelerometerEssential.csproj": {}
+    "/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/AccelerometerEssential.csproj": {}
   },
   "projects": {
-    "/home/adrian/App-Nvel-Burbuja/buendia/XAML/AccelerometerEssential.csproj": {
+    "/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/AccelerometerEssential.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/adrian/App-Nvel-Burbuja/buendia/XAML/AccelerometerEssential.csproj",
+        "projectUniqueName": "/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/AccelerometerEssential.csproj",
         "projectName": "AccelerometerEssential",
-        "projectPath": "/home/adrian/App-Nvel-Burbuja/buendia/XAML/AccelerometerEssential.csproj",
-        "packagesPath": "/home/adrian/.nuget/packages/",
-        "outputPath": "/home/adrian/App-Nvel-Burbuja/buendia/XAML/obj/",
+        "projectPath": "/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/AccelerometerEssential.csproj",
+        "packagesPath": "/tmp/cursor-sandbox-cache/bcd204819ab6ea2cfd1ff308315da9df/nuget",
+        "outputPath": "/home/adrian/App-BN/App-Nvel-Burbuja/buendia/XAML/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/adrian/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "netstandard2.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {}
           }
         },
@@ -41,16 +41,22 @@
         "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.7.3, )"
+              "version": "[1.8.1, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[5.0.0.2196, )"
+              "version": "[5.0.0.2662, )"
             }
           },
           "imports": [
@@ -64,21 +70,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.36, 6.0.36]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.36, 6.0.36]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
           "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.108/RuntimeIdentifierGraph.json"
         }
       }

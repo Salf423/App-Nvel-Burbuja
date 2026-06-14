@@ -58,6 +58,31 @@
             ]
         },
         {
+            "label": "build-android-release-apk",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/buendia/C#/AccelerometerEssential.Android.csproj",
+                "-c",
+                "Release",
+                "-f",
+                "net9.0-android",
+                "-o",
+                "${workspaceFolder}/publish",
+                "/p:AndroidBuildApplicationPackage=true",
+                "/p:AndroidGeneratePackageSigningKey=true"
+            ],
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "dependsOn": [
+                "restore"
+            ]
+        },
+        {
             "label": "build-and-deploy",
             "dependsOn": [
                 "deploy-android"

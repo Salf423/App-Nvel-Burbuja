@@ -13,47 +13,37 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'
+        dotnet-version: '9.0.x'
 
     - name: Install .NET Android workload
       run: dotnet workload install android
 
-
     - name: Setup Java
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
 
     - name: Setup Android SDK
-      uses: android-actions/setup-android@v2
-      with:
-        api-level: 33
-        ndk-version: r26
-        cmake-version: '3.22.1'
-    
-    - name: Debug - List directory structure
-      run: find . -name "*.csproj" -type f
+      uses: android-actions/setup-android@v3
 
     - name: Restore NuGet packages
       run: dotnet restore "buendia/C#/AccelerometerEssential.Android.csproj"
 
-    - name: Build Android App
-      run: dotnet build "buendia/C#/AccelerometerEssential.Android.csproj" -c Release
-    - name: Create APK
+    - name: Build and publish APK
       run: |
-       dotnet publish "buendia/C#/AccelerometerEssential.Android.csproj" \
-       -c Release \
-       -f net9.0-android \
-       -o ./publish \
-       /p:AndroidBuildApplicationPackage=true \
-       /p:AndroidGenerateNoSignatureApk=true
- 
+        dotnet publish "buendia/C#/AccelerometerEssential.Android.csproj" \
+          -c Release \
+          -f net9.0-android \
+          -o ./publish \
+          /p:AndroidBuildApplicationPackage=true \
+          /p:AndroidGeneratePackageSigningKey=true
+
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
@@ -65,21 +55,10 @@ jobs:
 
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         files: |
           ./publish/**/*.apk
           ./publish/**/*.aab
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Print build status
-      if: success()
-      run: |
-        echo "Build completed successfully!"
-        echo "APK available in artifacts"
-
-    - name: Print build failure
-      if: failure()
-      run: |
-        echo "Build failed - check logs above"

@@ -2,27 +2,29 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-android</TargetFramework>
+    <TargetFramework>net9.0-android</TargetFramework>
     <OutputType>Exe</OutputType>
-    <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
     <RootNamespace>AccelerometerEssential.Droid</RootNamespace>
     <AssemblyName>AccelerometerEssential.Android</AssemblyName>
+    <ApplicationId>com.companyname.AccelerometerEssential</ApplicationId>
+    <ApplicationTitle>Bubble Level</ApplicationTitle>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+    <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
     <AndroidPackageFormat>apk</AndroidPackageFormat>
-    <CheckEolWorkloads>false</CheckEolWorkloads>
-    <AndroidSdkBuildToolsVersion>34.0.0</AndroidSdkBuildToolsVersion>
-    
-    <AndroidXValidateXamarinAndroid>false</AndroidXValidateXamarinAndroid>
-    
-    <SkipAndroidXMigration>true</SkipAndroidXMigration>
-    <MonoAndroidVersion>12.0</MonoAndroidVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
-<ItemGroup>
-  <PackageReference Include="Xamarin.AndroidX.RecyclerView" Version="1.2.1.5" />
-</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2662" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\XAML\AccelerometerEssential.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AndroidManifest Include="..\Propiedaes\AndroidManifest.xml" Link="AndroidManifest.xml" />
   </ItemGroup>
 
 </Project>

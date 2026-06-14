@@ -1,7 +1,5 @@
 <Project>
   <PropertyGroup>
-    <AndroidXValidateXamarinAndroid>false</AndroidXValidateXamarinAndroid>
-    <SkipAndroidXMigration>true</SkipAndroidXMigration>
-    <MonoAndroidVersion>12.0</MonoAndroidVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 </Project>

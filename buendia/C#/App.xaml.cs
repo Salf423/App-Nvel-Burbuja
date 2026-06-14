@@ -6,6 +6,8 @@ namespace AccelerometerEssential
 {
     public partial class App : Application
     {
+        private const string PrimeraEjecucionKey = "PrimeraEjecucion";
+
         public App()
         {
             InitializeComponent();
@@ -14,21 +16,23 @@ namespace AccelerometerEssential
 
         protected override void OnStart()
         {
-            bool primeraVez = Xamarin.Essentials.Preferences.Get("Hola, esta app es desarrollada por Adrian Saul Flores Cruz, del grupo 2-4 NL:11 con matricula: 9170, Gracias por probarla", true);
-    
-        if (primeraVez)
+            bool primeraVez = Xamarin.Essentials.Preferences.Get(PrimeraEjecucionKey, true);
+
+            if (primeraVez)
             {
                 Console.WriteLine("Inicializando registros y parámetros de telemetría por defecto.");
-                Xamarin.Essentials.Preferences.Set("Hola, esta app es desarrollada por Adrian Saul Flores Cruz, del grupo 2-4 NL:11 con matricula: 9170", false);
+                Xamarin.Essentials.Preferences.Set(PrimeraEjecucionKey, false);
             }
         }
 
         protected override void OnSleep()
         {
-        Xamarin.Forms.MessagingCenter.Send<App>(this, "AppEnPausa");}
+            Xamarin.Forms.MessagingCenter.Send(this, "AppEnPausa");
+        }
 
         protected override void OnResume()
         {
-            Xamarin.Forms.MessagingCenter.Send<App>(this, "AppReanudada");}
+            Xamarin.Forms.MessagingCenter.Send(this, "AppReanudada");
+        }
     }
 }
